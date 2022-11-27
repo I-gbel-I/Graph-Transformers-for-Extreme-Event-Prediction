@@ -1,0 +1,51 @@
+{
+    "gpu": {
+        "use": true,
+        "id": 0
+    },
+    
+    "model": "GraphTransformer",
+    "out_dir": "out/SU/",
+
+    "dataset":  {
+        "pickle": "slope_units",
+        "settings": {
+            "update_tiles": true,
+            "tiles_per_row": 85,
+            "extremes_only":  false,
+            "full_graphs": false
+        }
+    },
+
+
+    "params": {
+        "seed": 41,
+        "epochs": 1000,
+        "batch_size": 128,
+        "init_lr": 1e-3,
+        "lr_reduce_factor": 0.5,
+        "lr_schedule_patience": 20,
+        "min_lr": 3e-8,
+        "weight_decay": 0.0,
+        "print_epoch_interval": 5,
+        "max_time": 24
+    },
+    
+    "net_params": {
+        "L": 10,
+        "n_heads": 8,
+        "hidden_dim": 80,
+        "out_dim": 80,
+        "edge_feat": true,
+        "residual": true,
+        "readout": "mean",
+        "in_feat_dropout": 0.0,
+        "dropout": 0.1,
+        "layer_norm": false,
+        "batch_norm": true,
+        "self_loop": false,
+        "lap_pos_enc": false,
+        "wl_pos_enc": true,
+        "pos_enc_dim": 8
+    }
+}
